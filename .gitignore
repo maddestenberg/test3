@@ -1,0 +1,8 @@
+bin/
+obj/
+BenchmarkDotNet.Artifacts/
+
+*.user
+*.suo
+.vscode/
+.DS_Store
