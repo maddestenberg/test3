@@ -46,8 +46,9 @@ namespace test3.Benchmarks
                       : RuntimeInformation.IsOSPlatform(OSPlatform.OSX)     ? "macOS"
                       : "Linux";
             string runtime = $"net{Environment.Version.Major}.0";
+            string arch = RuntimeInformation.ProcessArchitecture.ToString().ToLowerInvariant();
 
-            var lines = new List<string> { "OS,Runtime,Method,Iteration,ElapsedMs,PayloadBytes,ObjectCount" };
+            var lines = new List<string> { "OS,Runtime,Arch,Method,Iteration,ElapsedMs,PayloadBytes,ObjectCount" };
 
             foreach (var report in summary.Reports)
             {
@@ -64,8 +65,8 @@ namespace test3.Benchmarks
                     double elapsedMs = m.Nanoseconds / (m.Operations * 1_000_000.0);
                     lines.Add(string.Format(
                         System.Globalization.CultureInfo.InvariantCulture,
-                        "{0},{1},{2},{3},{4:F6},{5},{6}",
-                        os, runtime, methodName, i + 1, elapsedMs, GetPayload(methodName), objectCount));
+                        "{0},{1},{2},{3},{4},{5:F6},{6},{7}",
+                        os, runtime, arch, methodName, i + 1, elapsedMs, GetPayload(methodName), objectCount));
                 }
             }
 

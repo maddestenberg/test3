@@ -13,11 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="data/testdata3.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="data/testdata3-source.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="data/testdata3.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Update="data/testdata3.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data/*.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data/*.pb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
